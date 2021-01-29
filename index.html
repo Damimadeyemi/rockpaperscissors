@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>RockPaperScissors</title>
+    </head>
+
+    <body>
+        <script  type="text/javascript">
+
+        let result;
+        let message;
+
+        function computerPlay(){
+            let arr = ["rock", "paper", "scissors"];
+
+            var randomPlay = Math.floor(Math.random()*arr.length);
+
+            return arr[randomPlay];
+        }
+        
+        function playRound(playerSelection, computerSelection){
+           
+            str = playerSelection.toString();
+            str = str.toLowerCase();
+             // let computerSelection = computerPlay();
+
+            if (str == "rock" && computerSelection == "paper"){
+                return [message = "You lose, paper beats rock!", result = "loss"];
+
+            } 
+            else if (str == "rock" && computerSelection == "scissors"){
+                return [message = "Rock beats scissors, you win", result = "win"];
+            }
+            // else if ((str == "rock" && computerSelection == "rock")  OR (str == "paper" && computerSelection == "paper") OR (str == "scissors" && computerSelection == "scissors")){
+            //     return "It's a tie";
+            // }
+            else if (str == "paper" && computerSelection == "rock"){
+                return [message = "You win, paper beats rock", result = "win"];
+            }
+            else if (str == "paper" && computerSelection == "scissors"){
+                return [message = "You lose, scissors beats paper", result = "loss"];
+    
+            }
+            else if (str == "scissors" && computerSelection == "rock"){
+                return [message = "You lose, rock beats scissors", result = "loss"];
+
+            }
+            else if (str == "scissors" && computerSelection == "paper"){
+                return [message = "You win, scissors beats paper", result = "win"];
+
+            }
+            else{
+                
+                return [message = "it's a tie", result = "tie"];
+            }
+        }
+
+        // const playerSelection = prompt("Your turn");
+        // const computerSelection = computerPlay();
+        // console.log(game());
+
+        function game(){
+            
+
+            let score = 0;
+
+            for (i = 1; i < 6; i++){
+                alert("Round " + i);
+                console.log("Round " + i);
+
+                const playerSelection = prompt("Your turn");
+                const computerSelection = computerPlay();
+
+                playRound(playerSelection, computerSelection);
+                if (result == "win"){
+                    score++;
+                } else{
+                    score = score;
+                }
+
+                console.log ("You played " + playerSelection + " The computer played  " + computerSelection);
+                console.log(message + " " + " Your score so far is " + score);
+                alert("You played " + playerSelection + " The computer played  " + computerSelection);
+                alert(message + " " + " Your score so far is " + score);
+                
+            } 
+            
+            if (score > 3){
+                alert("You win, your total score is " + " " + score);
+                console.log("You win, your total score is " + " " + score);
+            }
+            else {
+                alert("You lose, your total score is" + " " + score);
+                console.log("You lose, your total score is" + " " + score);
+            }
+            
+        }
+        </script>
+    </body>
+</html>
