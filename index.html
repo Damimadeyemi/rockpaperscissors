@@ -1,99 +1,91 @@
 <html>
-    <head>
-        <title>RockPaperScissors</title>
-    </head>
+    <title>RockPaperScissors</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        #game{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 15%;
+        }
 
+        button,img{
+            border-radius: 35%;
+            background-color: white;
+            border: 0;
+        }
+
+        button:hover{
+            background-color: rgb(156, 55, 55);
+        }
+
+        p{
+            font-weight: bolder;
+            font-size: larger;
+            text-align: center;
+        }
+
+        #score{
+            font-weight: bolder;
+            font-size: larger;
+            text-align: center;
+            margin-top: 10%;
+        }
+
+        h1{
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        .instructions{
+            text-align: center;
+            margin-top: 5%;
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+
+    </style>
     <body>
-        <script  type="text/javascript">
 
-        let result;
-        let message;
+        <h1>Welcome to Rock Paper Scissors! Click on the items to play!</h1>
+        <div id = "game">
 
-        function computerPlay(){
-            let arr = ["rock", "paper", "scissors"];
+            <div id = "one">
+                <p>ROCK</p>
+                <button id ="rock">
+                    <img src="https://preview.redd.it/brxxveprs2e01.png?width=960&crop=smart&auto=webp&s=708632c40de355de1980efb2ff92b82feef8dd59"  width="200" height="200" alt="">
+                </button>
+            </div>
 
-            var randomPlay = Math.floor(Math.random()*arr.length);
+            <div id ="two">
+                <p>PAPER</p>
+                <button id ="paper">
+                    <img src="https://www.eckersleys.com.au/media/catalog/product/cache/image/640x640/e9c3970ab036de70892d86c6d221abfe/f/a/fabriano-accademia-200gsm.jpg"  width="200" height="200" alt="">
+                </button>
+            </div>
 
-            return arr[randomPlay];
-        }
-        
-        function playRound(playerSelection, computerSelection){
+            <div id="three">
+                <p>SCISSORS</p>
+                <button id ="scissors">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/810Tz4tXUyL._AC_SX522_.jpg" width="200" height="200" alt="">
+                </button>
+            </div>
+
            
-            str = playerSelection.toString();
-            str = str.toLowerCase();
-             // let computerSelection = computerPlay();
+        </div>
 
-            if (str == "rock" && computerSelection == "paper"){
-                return [message = "You lose, paper beats rock!", result = "loss"];
+        <div class = "instructions">
+            <div id = "turns">
+                <div> You played <span id ="myturn"></span></div>
+                <div id ="computer"> Computer played <span id = "computerplay"></span></div>
+            </div>
 
-            } 
-            else if (str == "rock" && computerSelection == "scissors"){
-                return [message = "Rock beats scissors, you win", result = "win"];
-            }
-            // else if ((str == "rock" && computerSelection == "rock")  OR (str == "paper" && computerSelection == "paper") OR (str == "scissors" && computerSelection == "scissors")){
-            //     return "It's a tie";
-            // }
-            else if (str == "paper" && computerSelection == "rock"){
-                return [message = "You win, paper beats rock", result = "win"];
-            }
-            else if (str == "paper" && computerSelection == "scissors"){
-                return [message = "You lose, scissors beats paper", result = "loss"];
-    
-            }
-            else if (str == "scissors" && computerSelection == "rock"){
-                return [message = "You lose, rock beats scissors", result = "loss"];
-
-            }
-            else if (str == "scissors" && computerSelection == "paper"){
-                return [message = "You win, scissors beats paper", result = "win"];
-
-            }
-            else{
-                
-                return [message = "it's a tie", result = "tie"];
-            }
-        }
-
-        // const playerSelection = prompt("Your turn");
-        // const computerSelection = computerPlay();
-        // console.log(game());
-
-        function game(){
-            
-
-            let score = 0;
-
-            for (i = 1; i < 6; i++){
-                alert("Round " + i);
-                console.log("Round " + i);
-
-                const playerSelection = prompt("Your turn");
-                const computerSelection = computerPlay();
-
-                playRound(playerSelection, computerSelection);
-                if (result == "win"){
-                    score++;
-                } else{
-                    score = score;
-                }
-
-                console.log ("You played, " + playerSelection + ". The computer played,  " + computerSelection);
-                console.log(message + " " + " Your score so far is " + score);
-                alert("You played, " + playerSelection + ". The computer played,  " + computerSelection);
-                alert(message + " " + " Your score so far is, " + score);
-                
-            } 
-            
-            if (score > 3){
-                alert("You win, your total score is " + " " + score);
-                console.log("You win, your total score is " + " " + score);
-            }
-            else {
-                alert("You lose, your total score is" + " " + score);
-                console.log("You lose, your total score is" + " " + score);
-            }
-            
-        }
-        </script>
+            <div id = "winorlose"></div>
+            <div>Score: <span id = "score"></span></div>
+        </div>
+    <script src="script.js"></script>
     </body>
+    
 </html>
